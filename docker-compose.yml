@@ -1,0 +1,14 @@
+version: "3.3"
+
+services:
+  # Habitica container
+  sdrm:
+    build: ./docker/
+    image: habitica:v0.1
+    container_name: habitica
+    hostname: habitica
+    volumes:
+      - ".:/habitica"
+    ports:
+      - "127.0.0.1:8008:80"
+    command: ["nginx", "-g", "daemon off;"]
